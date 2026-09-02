@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --primary: #431B94;
+  --primary-hover: #2D0F66;
+  --primary-light: #F3E8FF;
+  --primary-mint: #EDE9FE;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Text Color Override (Crisp Professional Slate) */
+  --color-slate-900: #0F172A;
+  --color-slate-800: #1E293B;
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+
+  /* Brand Colors - Image Palette */
+  --color-primary: #431B94;
+  --color-dark-blue: #2D0F66;
+  --color-accent: #7C3AED;
+  --color-success: #10B981;
+  
+  /* Semantic Colors */
+  --color-card-bg: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+
+  --font-sans: var(--font-poppins), sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0B1121;
+    --foreground: #F8FAFC;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Ensure form controls are readable and do not inherit light text colors in dark mode */
+input, select, textarea, option {
+  color: #0f172a;
+}
+
+/* ===== INVISIBLE SCROLLBAR - Global ===== */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge */
+}
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Utility: hide scrollbar but keep scroll (for divs) */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Utility: slim custom scrollbar for internal panels */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ===== MOBILE TOUCH & SMOOTH PERFORMANCE IMPROVEMENTS ===== */
+
+/* Hardware acceleration & smooth motion */
+.gpu-smooth {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+.smooth-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.smooth-card:hover {
+  transform: translateY(-4px);
+}
+
+.smooth-btn {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+  will-change: transform;
+}
+
+.smooth-btn:hover {
+  transform: translateY(-1px);
+}
+
+.smooth-btn:active {
+  transform: scale(0.97);
+}
+
+/* Remove 300ms tap delay on mobile */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure images don't overflow on mobile and render crisply */
+img {
+  max-width: 100%;
+  height: auto;
+  content-visibility: auto;
+}
+
+/* Minimum touch target size (WCAG AA) */
+button, a {
+  min-height: 36px;
+}
+
+/* Safe area insets for phones with notches */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

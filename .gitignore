@@ -1,0 +1,36 @@
+# Virtual environment
+backend/venv/
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Node modules & frontend builds
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.next/
+.next/
+
+# Local databases
+*.db
+backend/*.db
+*.sqlite3
+
+# Temp files
+vite.config.ts.timestamp-*
+frontend/vite.config.ts.timestamp-*
+
+# IDE & env
+.env
+.idea/
+.vscode/
+.gemini/
+backend/uploads/
+
+# Local utility and scratch scripts
+*.bat
+*.ps1
+backend/fix_existing_slugs.py
+*.log
